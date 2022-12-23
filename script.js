@@ -12,11 +12,11 @@ const createH1 = (id) => {
   div.appendChild(h1);
 };
 
-const createInput = (id) => {
-  const div = document.getElementById('input-div');
+const createInput = (id, parent, type) => {
   const input = document.createElement('input');
   input.id = id;
-  div.appendChild(input);
+  input.type = type;
+  parent.appendChild(input);
 };
 
 const createButton = (id) => {
@@ -38,9 +38,10 @@ const showText = () => {
 
 window.onload = () => {
   createDiv('input-div', document.body);
+  const div = document.getElementById('input-div');
   createH1('hero-title');
-  createInput('text-input');
-  createButton('btn-create');
+  createInput('text-input', div);
+  createInput('meme-insert', div, 'file');
   createDiv('meme-image-container', document.body);
   const memeDiv = document.getElementById('meme-image-container');
   createDiv('meme-text', memeDiv);
