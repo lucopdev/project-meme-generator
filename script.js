@@ -28,10 +28,11 @@ const createButton = (id) => {
 };
 
 const showText = () => {
-  const memeDiv = document.getElementById('meme-div');
+  const memeDiv = document.getElementById('meme-image-container');
   const input = document.getElementById('text-input');
+  const displayText = document.getElementById('meme-text');
   input.addEventListener('input', () => {
-    memeDiv.innerHTML = input.value;
+    displayText.innerHTML = input.value;
   });
 };
 
@@ -40,8 +41,8 @@ window.onload = () => {
   createH1('hero-title');
   createInput('text-input');
   createButton('btn-create');
-  createDiv('meme-div', document.body);
-  const memeDiv = document.getElementById('meme-div');
-  createDiv('display-text', memeDiv);
+  createDiv('meme-image-container', document.body);
+  const memeDiv = document.getElementById('meme-image-container');
+  createDiv('meme-text', memeDiv);
   showText();
 };

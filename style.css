@@ -31,16 +31,21 @@ body {
   display: inline-block;
 }
 
-#meme-div {
+#meme-image-container {
   margin: auto;
   width: 500px;
   height: 500px;
-  border: 2px solid black;
+  border: 1px solid black;
+  background-color: white;
 }
 
-#display-text {
+#meme-text {
   position: relative;
   top: 400px;
+  width: 90%;
   height: 100px;
-  background-color: red;
+  color: white;
+  font-size: 35px;
+  margin: auto;
+  text-shadow: 5px 5px 5px blue;
 }
