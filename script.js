@@ -1,7 +1,7 @@
-const createDiv = (id) => {
+const createDiv = (id, parent) => {
   const div = document.createElement('div');
   div.id = id;
-  document.body.appendChild(div);
+  parent.appendChild(div);
 };
 
 const createH1 = (id) => {
@@ -27,9 +27,21 @@ const createButton = (id) => {
   div.appendChild(button);
 };
 
+const showText = () => {
+  const memeDiv = document.getElementById('meme-div');
+  const input = document.getElementById('text-input');
+  input.addEventListener('input', () => {
+    memeDiv.innerHTML = input.value;
+  });
+};
+
 window.onload = () => {
-  createDiv('input-div');
+  createDiv('input-div', document.body);
   createH1('hero-title');
   createInput('text-input');
   createButton('btn-create');
+  createDiv('meme-div', document.body);
+  const memeDiv = document.getElementById('meme-div');
+  createDiv('display-text', memeDiv);
+  showText();
 };
