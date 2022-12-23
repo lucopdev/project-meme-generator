@@ -6,3 +6,27 @@
 body {
   background-color: rgb(143, 143, 233);
 }
+
+#hero-title {
+  margin-bottom: 20px;
+}
+
+#input-div {
+  text-align: center;
+  border: 2px solid black;
+  width: 350px;
+  padding: 20px;
+  margin: 15px auto;
+}
+
+#btn-create {
+  width: 80px;
+  height: 29px;
+  vertical-align: top;
+}
+
+#text-input {
+  width: 200px;
+  height: 25px;
+  display: inline-block;
+}
