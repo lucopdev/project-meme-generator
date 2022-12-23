@@ -15,7 +15,7 @@ const createH1 = (id) => {
 const createInput = (id) => {
   const div = document.getElementById('input-div');
   const input = document.createElement('input');
-  input.id = id
+  input.id = id;
   div.appendChild(input);
 };
 
