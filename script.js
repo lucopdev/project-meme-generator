@@ -36,6 +36,8 @@ const showText = () => {
   });
 };
 
+
+
 window.onload = () => {
   createDiv('input-div', document.body);
   const div = document.getElementById('input-div');
