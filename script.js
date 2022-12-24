@@ -54,6 +54,27 @@ const displayImage = () => {
   });
 };
 
+const createBorder = () => {
+  const memeImageContainer = document.getElementById('meme-image-container');
+  const fire = document.getElementById('fire');
+  const water = document.getElementById('water');
+  const earth = document.getElementById('earth');
+  fire.addEventListener('click', (e) => {
+    console.log(e.target.style.backgroundColor);
+    memeImageContainer.style.border = `3px dashed ${e.target.style.backgroundColor}`;
+  });
+
+  water.addEventListener('click', (e) => {
+    console.log(e.target.style.backgroundColor);
+    memeImageContainer.style.border = `5px double ${e.target.style.backgroundColor}`;
+  });
+
+  earth.addEventListener('click', (e) => {
+    console.log(e.target.style.backgroundColor);
+    memeImageContainer.style.border = `6px groove ${e.target.style.backgroundColor}`;
+  });
+};
+
 window.onload = () => {
   createDiv('input-div', document.body);
   createDiv('meme-image-container', document.body);
@@ -72,4 +93,5 @@ window.onload = () => {
   createButton('fire', btnDiv, 'Fire', 'rgb(255, 0, 0)');
   createButton('water', btnDiv, 'Water', 'rgb(0, 0, 255)');
   createButton('earth', btnDiv, 'Earth', 'rgb(0, 128, 0)');
+  createBorder();
 };
