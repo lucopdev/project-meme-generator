@@ -27,6 +27,13 @@ const createButton = (id) => {
   div.appendChild(button);
 };
 
+// const createImg = (id, parent, src) => {
+//   const memeImageContainer = document.getElementById('meme0-image-container');
+//   const img = document.createElement('img');
+//   img.src = src;
+//   parent.appendChild(img);
+// };
+
 const showText = () => {
   const memeDiv = document.getElementById('meme-image-container');
   const input = document.getElementById('text-input');
@@ -35,8 +42,21 @@ const showText = () => {
     displayText.innerHTML = input.value;
   });
 };
-
-
+const displayImage = () => {
+  const inputImage = document.getElementById('meme-insert');
+  const memeImageContainer = document.getElementById('meme-image-container');
+  inputImage.addEventListener('change', () => {
+    if (inputImage.files.length <= 0) {
+      return;
+    }
+    console.log(inputImage.files);
+    let reader = new FileReader();
+    reader.onload = () => {
+      memeImageContainer.style.backgroundImage = `url(${reader.result})`;
+    };
+    reader.readAsDataURL(inputImage.files[0]);
+  });
+};
 
 window.onload = () => {
   createDiv('input-div', document.body);
@@ -48,4 +68,5 @@ window.onload = () => {
   const memeDiv = document.getElementById('meme-image-container');
   createDiv('meme-text', memeDiv);
   showText();
+  displayImage();
 };

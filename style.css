@@ -38,6 +38,8 @@ body {
   height: 500px;
   border: 1px solid black;
   background-color: white;
+  background-size: cover;
+  z-index: 2;
 }
 
 #meme-text {
@@ -50,4 +52,5 @@ body {
   font-weight: 700;
   margin: auto;
   text-shadow: 5px 5px 5px black;
+  z-index: 1;
 }
