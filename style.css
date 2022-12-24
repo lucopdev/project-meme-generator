@@ -8,21 +8,15 @@ body {
 }
 
 #hero-title {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 #input-div {
   text-align: center;
   border: 2px solid black;
   width: 350px;
-  padding: 20px;
-  margin: 15px auto;
-}
-
-#btn-create {
-  width: 80px;
-  height: 29px;
-  vertical-align: top;
+  padding: 5px;
+  margin: 10px auto;
 }
 
 #text-input {
@@ -34,8 +28,8 @@ body {
 
 #meme-image-container {
   margin: auto;
-  width: 500px;
-  height: 500px;
+  width: 400px;
+  height: 400px;
   border: 1px solid black;
   background-color: white;
   z-index: 0;
@@ -64,8 +58,22 @@ body {
 #image {
   overflow: hidden;
   position: relative;
-  top: -125px;
+  top: -100px;
   width: 100%;
   height: 100%;
   z-index: 1;
+}
+
+#btn-div {
+  width: fit-content;
+  margin: 20px auto;
+}
+
+#fire, #water, #earth {
+  width: 80px;
+  height: 30px;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 5px;
+  border-radius: 5px;
 }

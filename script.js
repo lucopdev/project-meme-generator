@@ -11,33 +11,21 @@ const createH1 = (id, parent) => {
   parent.appendChild(h1);
 };
 
-const createInput = (id, parent, type) => {
+const createInput = (id, parent, type, maxLength) => {
   const input = document.createElement('input');
   input.id = id;
   input.type = type;
+  input.maxLength = maxLength;
   parent.appendChild(input);
 };
 
-// const createButton = (id) => {
-//   const div = document.getElementById('input-div');
-//   const button = document.createElement('button');
-//   button.id = id;
-//   button.innerHTML = 'Criar';
-//   div.appendChild(button);
-// };
-
-// const createImg = (id, parent, src) => {
-//   const img = document.createElement('img');
-//   img.src = src;
-//   img.id = id;
-//   parent.appendChild(img);
-// };
-
-// const removeImg = (id) => {
-//   const memeImageContainer = document.getElementById('meme-image-container');
-//   const img = document.getElementById(id);
-//   memeImageContainer.removeChild(img);
-// };
+const createButton = (id, parent, innerText, bgColor) => {
+  const button = document.createElement('button');
+  button.id = id;
+  button.innerHTML = innerText;
+  button.style.backgroundColor = bgColor;
+  parent.appendChild(button);
+};
 
 const showText = () => {
   const input = document.getElementById('text-input');
@@ -72,11 +60,16 @@ window.onload = () => {
   const memeImageContainer = document.getElementById('meme-image-container');
   const div = document.getElementById('input-div');
   createH1('hero-title', div);
-  createInput('text-input', div);
+  createInput('text-input', div, 'text', '60');
   createInput('meme-insert', div, 'file');
   createDiv('meme-image', memeImageContainer);
   const memeImage = document.getElementById('meme-image');
   createDiv('meme-text', memeImage);
   showText();
   displayImage();
+  createDiv('btn-div', document.body);
+  const btnDiv = document.getElementById('btn-div');
+  createButton('fire', btnDiv, 'Fire', 'rgb(255, 0, 0)');
+  createButton('water', btnDiv, 'Water', 'rgb(0, 0, 255)');
+  createButton('earth', btnDiv, 'Earth', 'rgb(0, 128, 0)');
 };
