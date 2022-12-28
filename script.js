@@ -1,3 +1,6 @@
+const memeImgContainer = 'meme-image-container';
+const memeImg = 'meme-image';
+
 const createDiv = (id, parent) => {
   const div = document.createElement('div');
   div.id = id;
@@ -36,7 +39,7 @@ const showText = () => {
 };
 
 const displayImage = () => {
-  const memeImage = document.getElementById('meme-image');
+  const memeImage = document.getElementById(memeImg);
   const inputImage = document.getElementById('meme-insert');
   const img = document.createElement('img');
   img.id = 'image';
@@ -55,7 +58,7 @@ const displayImage = () => {
 };
 
 const createBorder = () => {
-  const memeImageContainer = document.getElementById('meme-image-container');
+  const memeImageContainer = document.getElementById(memeImgContainer);
   const fire = document.getElementById('fire');
   const water = document.getElementById('water');
   const earth = document.getElementById('earth');
@@ -78,13 +81,13 @@ const createBorder = () => {
 window.onload = () => {
   createDiv('input-div', document.body);
   createDiv('meme-image-container', document.body);
-  const memeImageContainer = document.getElementById('meme-image-container');
+  const memeImageContainer = document.getElementById(memeImgContainer);
   const div = document.getElementById('input-div');
   createH1('hero-title', div);
   createInput('text-input', div, 'text', '60');
   createInput('meme-insert', div, 'file');
   createDiv('meme-image', memeImageContainer);
-  const memeImage = document.getElementById('meme-image');
+  const memeImage = document.getElementById(memeImg);
   createDiv('meme-text', memeImage);
   showText();
   displayImage();
