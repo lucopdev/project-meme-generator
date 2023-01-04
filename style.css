@@ -74,7 +74,8 @@ body {
   height: 30px;
   font-size: 15px;
   font-weight: 700;
-  margin: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
   border-radius: 5px;
 }
 
@@ -88,4 +89,16 @@ body {
 
 #earth {
   background-color: green;
+}
+
+#container-imgs {
+  width: fit-content;
+  text-align: center;
+  margin: 0 auto;
+}
+
+#meme-1, #meme-2, #meme-3, #meme-4 {
+  padding: 20px;
+  width: 70px;
+  height: 70px;
 }

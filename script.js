@@ -1,5 +1,16 @@
-const memeImgContainer = 'meme-image-container';
-const memeImg = 'meme-image';
+const memeImgContainerClass = 'meme-image-container';
+const memeImgClass = 'meme-image';
+const containerImgsClass = 'container-imgs';
+const tinyImagesClass = 'tiny-images';
+const memeInsertClass = 'meme-insert';
+
+const createImg = (id, parent, name) => {
+  const img = document.createElement('img');
+  img.id = id;
+  img.className = tinyImagesClass;
+  img.setAttribute('src', `imgs/${name}`);
+  parent.appendChild(img);
+};
 
 const createDiv = (id, parent) => {
   const div = document.createElement('div');
@@ -38,15 +49,24 @@ const showText = () => {
   });
 };
 
+const imageRemove = () => {
+  const memeImage = document.getElementById(memeImgClass);
+  for (let index = 0; index < memeImage.childElementCount; index += 1) {
+    if (memeImage.children[index].classList.contains(tinyImagesClass)) {
+      memeImage.children[index].remove();
+    }
+  }
+};
+
 const displayImage = () => {
-  const memeImage = document.getElementById(memeImg);
-  const inputImage = document.getElementById('meme-insert');
+  const memeImage = document.getElementById(memeImgClass);
+  const inputImage = document.getElementById(memeInsertClass);
   const img = document.createElement('img');
   img.id = 'image';
-  memeImage.appendChild(img);
-
+  img.className = tinyImagesClass;
   inputImage.addEventListener('change', () => {
-    if (inputImage.files.length <= 0) {
+    imageRemove();
+    if (inputImage.files.length === 0) {
       return;
     }
     const reader = new FileReader();
@@ -54,40 +74,53 @@ const displayImage = () => {
       img.src = reader.result;
     };
     reader.readAsDataURL(inputImage.files[0]);
+    memeImage.appendChild(img);
   });
 };
 
 const createBorder = () => {
-  const memeImageContainer = document.getElementById(memeImgContainer);
+  const memeImageContainer = document.getElementById(memeImgContainerClass);
   const fire = document.getElementById('fire');
   const water = document.getElementById('water');
   const earth = document.getElementById('earth');
   fire.addEventListener('click', (e) => {
-    console.log(e.target.style.backgroundColor);
     memeImageContainer.style.border = `3px dashed ${e.target.style.backgroundColor}`;
   });
-
   water.addEventListener('click', (e) => {
-    console.log(e.target.style.backgroundColor);
     memeImageContainer.style.border = `5px double ${e.target.style.backgroundColor}`;
   });
-
   earth.addEventListener('click', (e) => {
-    console.log(e.target.style.backgroundColor);
     memeImageContainer.style.border = `6px groove ${e.target.style.backgroundColor}`;
   });
 };
 
+const addPreviewImage = () => {
+  const inputImage = document.getElementById(memeInsertClass);
+  const tinyImages = document.getElementsByClassName(tinyImagesClass);
+  const memeImage = document.getElementById(memeImgClass);
+  for (let index = 0; index < tinyImages.length; index += 1) {
+    tinyImages[index].addEventListener('click', () => {
+      imageRemove();
+      createImg(`meme-${index + 1}`, memeImage, `meme${index + 1}.jpeg`);
+      const img = document.getElementById(`meme-${index + 1}`);
+      img.setAttribute('id', 'image');
+      memeImage.appendChild(img);
+      inputImage.value = '';
+    });
+  }
+};
+
+createDiv('input-div', document.body);
+createDiv('meme-image-container', document.body);
+const memeImageContainer = document.getElementById(memeImgContainerClass);
+const div = document.getElementById('input-div');
+createH1('hero-title', div);
+createInput('text-input', div, 'text', '60');
+createInput('meme-insert', div, 'file');
+createDiv('meme-image', memeImageContainer);
+
 window.onload = () => {
-  createDiv('input-div', document.body);
-  createDiv('meme-image-container', document.body);
-  const memeImageContainer = document.getElementById(memeImgContainer);
-  const div = document.getElementById('input-div');
-  createH1('hero-title', div);
-  createInput('text-input', div, 'text', '60');
-  createInput('meme-insert', div, 'file');
-  createDiv('meme-image', memeImageContainer);
-  const memeImage = document.getElementById(memeImg);
+  const memeImage = document.getElementById(memeImgClass);
   createDiv('meme-text', memeImage);
   showText();
   displayImage();
@@ -97,4 +130,11 @@ window.onload = () => {
   createButton('water', btnDiv, 'Water', 'rgb(0, 0, 255)');
   createButton('earth', btnDiv, 'Earth', 'rgb(0, 128, 0)');
   createBorder();
+  createDiv('container-imgs', document.body);
+  const containerImgs = document.getElementById(containerImgsClass);
+  createImg('meme-1', containerImgs, 'meme1.jpeg');
+  createImg('meme-2', containerImgs, 'meme2.jpeg');
+  createImg('meme-3', containerImgs, 'meme3.jpeg');
+  createImg('meme-4', containerImgs, 'meme4.jpeg');
+  addPreviewImage();
 };
