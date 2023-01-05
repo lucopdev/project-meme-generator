@@ -101,10 +101,11 @@ const addPreviewImage = () => {
   for (let index = 0; index < tinyImages.length; index += 1) {
     tinyImages[index].addEventListener('click', () => {
       imageRemove();
-      createImg(`meme-${index + 1}`, memeImage, `meme${index + 1}.jpeg`);
+      createImg(`meme-${index + 1}`, memeImage, `meme${index + 1}.png`);
       const img = document.getElementById(`meme-${index + 1}`);
       img.setAttribute('id', 'image');
       memeImage.appendChild(img);
+      memeImage.setAttribute('src', `imgs/meme${index + 1}.png`);
       inputImage.value = '';
     });
   }
@@ -132,9 +133,9 @@ window.onload = () => {
   createBorder();
   createDiv('container-imgs', document.body);
   const containerImgs = document.getElementById(containerImgsClass);
-  createImg('meme-1', containerImgs, 'meme1.jpeg');
-  createImg('meme-2', containerImgs, 'meme2.jpeg');
-  createImg('meme-3', containerImgs, 'meme3.jpeg');
-  createImg('meme-4', containerImgs, 'meme4.jpeg');
+  createImg('meme-1', containerImgs, 'meme1.png');
+  createImg('meme-2', containerImgs, 'meme2.png');
+  createImg('meme-3', containerImgs, 'meme3.png');
+  createImg('meme-4', containerImgs, 'meme4.png');
   addPreviewImage();
 };
