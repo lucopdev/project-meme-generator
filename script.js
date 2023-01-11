@@ -104,7 +104,6 @@ const addPreviewImage = () => {
       createImg(`meme-${index + 1}`, memeImage, `meme${index + 1}.png`);
       const img = document.getElementById(`meme-${index + 1}`);
       img.setAttribute('id', 'image');
-      memeImage.appendChild(img);
       memeImage.setAttribute('src', `imgs/meme${index + 1}.png`);
       inputImage.value = '';
     });

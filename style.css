@@ -16,7 +16,7 @@ body {
   border: 2px solid black;
   width: 350px;
   padding: 5px;
-  margin: 10px auto;
+  margin: 50px auto;
 }
 
 #text-input {
@@ -97,7 +97,7 @@ body {
   margin: 0 auto;
 }
 
-#meme-1, #meme-2, #meme-3, #meme-4 {
+#meme-1 , #meme-2 , #meme-3 , #meme-4 {
   padding: 20px;
   width: 70px;
   height: 70px;
